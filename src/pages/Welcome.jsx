@@ -1,8 +1,7 @@
 import React from "react";
-import "./../assets/styles.css";
 import SigninBtn from "../components/Button/SigninBtn";
 import Link from "@mui/material/Link";
-import Box from "@mui/material/Box";
+import { Box, Typography } from "@mui/material";
 import Divider, { dividerClasses } from "@mui/material/Divider";
 import { useNavigate } from "react-router-dom";
 const Welcome = () => {
@@ -17,9 +16,13 @@ const Welcome = () => {
         alignItems: "center",
       }}
     >
-      <h1 className="text-white">Welcome Back!</h1>
-      <p className="text-white">To stay connected with us</p>
-      <p className="text-white">please login with your personal info</p>
+      <Typography variant="h1" mb={3}>
+        Welcome Back!
+      </Typography>
+      <Typography variant="body1">To stay connected with us</Typography>
+      <Typography variant="body1">
+        please login with your personal info
+      </Typography>
       <SigninBtn />
 
       <Box

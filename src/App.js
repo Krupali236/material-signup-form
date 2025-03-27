@@ -5,13 +5,14 @@ import Grid from "@mui/material/Grid2";
 import Container from "@mui/material/Container";
 import Welcome from "./pages/Welcome";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { ThemeProvider } from "@mui/material/styles";
+import theme from "./assets/Theme"; // Import the theme file
 function App() {
   const router = createBrowserRouter([
     {
       path: "/",
       element: (
         <>
-          {/* <Signup /> */}
           <div
             style={{
               height: "100vh",
@@ -57,7 +58,6 @@ function App() {
       path: "/signin",
       element: (
         <>
-          {/* <Welcome /> */}
           <div
             style={{
               height: "100vh",
@@ -82,7 +82,6 @@ function App() {
                     sx={{
                       backgroundColor: "#0faf82",
                       borderRadius: "20px",
-                      // display: { xs: "none", md: "block" },
                     }}
                   >
                     <Welcome />
@@ -97,7 +96,9 @@ function App() {
   ]);
   return (
     <>
-      <RouterProvider router={router}></RouterProvider>
+      <ThemeProvider theme={theme}>
+        <RouterProvider router={router}></RouterProvider>
+      </ThemeProvider>
     </>
   );
 }

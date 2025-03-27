@@ -20,23 +20,23 @@ const Signup = () => {
 
   const isValid = (value) => {
     const handleError = {};
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; // Standard email validation
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     const alphabetRegex = /^[a-zA-Z]+$/;
     const passwordRegex =
       /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/gm;
     if (!value?.username) {
-      handleError.username = "Please Enter username";
+      handleError.username = "Please enter username";
     } else if (!alphabetRegex.test(value?.username)) {
       handleError.username = "please enter valid username";
     }
     if (!value?.email) {
-      handleError.email = "please Enter email";
+      handleError.email = "Please enter email";
     } else if (!emailRegex.test(value?.email)) {
       handleError.email = "please enter valid email";
     }
 
     if (!value?.password) {
-      handleError.password = "Please Enter password";
+      handleError.password = "Please enter password";
     } else if (!passwordRegex.test(value?.password)) {
       handleError.password = "please enter valid password";
     }

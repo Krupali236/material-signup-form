@@ -11,7 +11,7 @@ export default function SignupBtn({ handleSubmit }) {
     >
       <Button
         variant="contained"
-        onClick={handleSubmit} 
+        onClick={handleSubmit}
         sx={{
           width: { lg: "200px", xs: "150px" },
           height: "40px",
