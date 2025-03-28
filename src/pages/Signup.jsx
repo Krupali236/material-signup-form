@@ -1,12 +1,12 @@
 import React from "react";
 import Inputs from "../components/Inputs/Inputs";
-import SignupBtn from "../components/Button/SignupBtn";
 import Link from "@mui/material/Link";
 import { Box, Typography } from "@mui/material";
 import LocalFireDepartmentIcon from "@mui/icons-material/LocalFireDepartment";
-import { useMediaQuery } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
+import SignupAlert from "../components/Alert/SignupAlert";
+import CustomContainedButton from "../components/Button/CustomContainedBtn";
 const Signup = () => {
   const [inputValue, setInputValue] = useState({
     username: "",
@@ -14,8 +14,7 @@ const Signup = () => {
     password: "",
   });
   const [errors, setErrors] = useState({});
-  const isSmallScreen = useMediaQuery("(max-width:600px)");
-  console.log(isSmallScreen, "isSmallScreen");
+  const [dialogOpen, setDialogOpen] = useState(false);
   const navigate = useNavigate();
 
   const isValid = (value) => {
@@ -59,167 +58,108 @@ const Signup = () => {
       } else {
         userData.push(inputValue);
         localStorage.setItem("users", JSON.stringify(userData));
-        alert("Sign up successful!");
         setInputValue({ username: "", email: "", password: "" });
+        setDialogOpen(true);
       }
     }
   };
   return (
     <>
-      {isSmallScreen && (
-        <Box
-          sx={{
-            padding: {
-              xs: "0px 0px",
-              sm: "40px 20px",
-              md: "30px 60px",
-              lg: "40px 80px",
-            },
-            display: "flex",
-            flexDirection: "column",
-          }}
-        >
-          <div
-            style={{
-              backgroundColor: "#0faf82",
-              height: 150,
-              width: "100%",
-              borderTopLeftRadius: "20px",
-              borderTopRightRadius: "20px",
-              display: "flex",
-              flexDirection: "column",
-              alignItems: "center",
-              justifyContent: "center",
-            }}
-          >
-            <Box
-              sx={{
-                backgroundColor: "white",
-                borderRadius: "100%",
-                width: "max-content",
-              }}
-            >
-              <LocalFireDepartmentIcon
-                color="white"
-                sx={{
-                  "&.MuiSvgIcon-root": {
-                    fill: "#0faf82",
-                    fontSize: 56,
-                  },
-                }}
-              />
-            </Box>
-            <Typography
-              sx={{ mt: 1 }}
-              variant="h5"
-              color="white"
-              fontWeight="normal"
-              textAlign="center"
-            >
-              blueflame
-            </Typography>
-          </div>
-          <div style={{ padding: "40px 20px" }}>
-            <Typography variant="h4" color="#0faf82" fontWeight="bold">
-              Sign Up
-            </Typography>
-            <Typography
-              variant="body"
-              color="black"
-              sx={{ mb: 2, mt: 1, fontSize: "14px" }}
-            >
-              Hey enter your details to sign in to your account
-            </Typography>
-
-            <Inputs
-              inputValue={inputValue}
-              setInputValue={setInputValue}
-              errors={errors}
-            />
-            <SignupBtn handleSubmit={handleSubmit} />
-
-            <Link
-              href="#"
-              color="inherit"
-              sx={{
-                textDecoration: "none",
-                display: "block",
-                marginLeft: "60px",
-                fontSize: "14px",
-              }}
-            >
-              Forgot your password?
-            </Link>
-            <p
-              style={{
-                marginLeft: "60px",
-                fontSize: "14px",
-                marginTop: "12px",
-              }}
-            >
-              Already have an account?
-              <Link
-                color="inherit"
-                sx={{
-                  textDecoration: "none",
-                  fontSize: "14px",
-                  fontWeight: 500,
-                  mt: 1,
-                }}
-                onClick={() => navigate("/signin")}
-              >
-                SignIn
-              </Link>
-            </p>
-          </div>
-        </Box>
-      )}
-
-      {/* Large Screen  */}
       <Box
         sx={{
           padding: {
-            xs: "50px 10px",
+            xs: "0px 0px",
             sm: "40px 20px",
             md: "30px 60px",
             lg: "40px 80px",
           },
-          display: { xs: "none", sm: "block", md: "flex" },
+          display: "flex",
           flexDirection: "column",
           justifyContent: "center",
         }}
       >
-        <Typography
-          variant="h4"
-          color="#0faf82"
-          fontWeight="bold"
-          sx={{ mt: 4 }}
-        >
-          Sign Up
-        </Typography>
-        <Typography variant="body" color="black" sx={{ mb: 2, mt: 1 }}>
-          Hey enter your details to sign in to your account
-        </Typography>
-
-        <Inputs
-          inputValue={inputValue}
-          setInputValue={setInputValue}
-          errors={errors}
-        />
-        <SignupBtn handleSubmit={handleSubmit} />
-
-        <Link
-          href="#"
-          color="inherit"
+        <Box
           sx={{
-            textDecoration: "none",
-            display: "block",
-            marginLeft: "60px",
+            backgroundColor: "#0faf82",
+            height: 150,
+            width: "100%",
+            borderTopLeftRadius: "20px",
+            borderTopRightRadius: "20px",
+            flexDirection: "column",
+            alignItems: "center",
+            justifyContent: "center",
+            display: { xs: "flex", sm: "none", md: "none", lg: "none" },
           }}
         >
-          Forgot your password?
-        </Link>
+          <Box
+            sx={{
+              backgroundColor: "white",
+              borderRadius: "100%",
+              width: "max-content",
+            }}
+          >
+            <LocalFireDepartmentIcon
+              color="white"
+              sx={{
+                "&.MuiSvgIcon-root": {
+                  fill: "#0faf82",
+                  fontSize: 56,
+                },
+              }}
+            />
+          </Box>
+          <Typography sx={{ mt: 1 }} variant="h5">
+            blueflame
+          </Typography>
+        </Box>
+
+        <Box
+          sx={{
+            width: "100%",
+            display: "flex",
+            flexDirection: "column",
+            alignItems: {
+              lg: "flex-start",
+              md: "flex-start",
+              sm: "flex-start",
+              xs: "center",
+            },
+            justifyContent: {
+              lg: "flex-start",
+              md: "flex-start",
+              sm: "flex-start",
+              xs: "center",
+            },
+            gap: 1,
+          }}
+        >
+          <Typography variant="h4" sx={{ mt: 4 }}>
+            Sign Up
+          </Typography>
+          <Typography variant="body1" sx={{ mb: 2, mt: 1 }}>
+            Hey enter your details to sign in to your account
+          </Typography>
+
+          <Inputs
+            inputValue={inputValue}
+            setInputValue={setInputValue}
+            errors={errors}
+            fields={["username", "email", "password"]}
+          />
+
+          <CustomContainedButton onClick={handleSubmit}>
+            Sign Up
+          </CustomContainedButton>
+          <SignupAlert />
+          <Typography variant="body1" sx={{ mt: 2 }}>
+            Already have an account?
+            <Link m={1} onClick={() => navigate("/signin")}>
+              Sign In
+            </Link>
+          </Typography>
+        </Box>
       </Box>
+      <SignupAlert open={dialogOpen} handleClose={() => setDialogOpen(false)} />
     </>
   );
 };

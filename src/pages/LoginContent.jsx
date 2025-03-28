@@ -4,7 +4,7 @@ import { Box, Typography } from "@mui/material";
 import Divider, { dividerClasses } from "@mui/material/Divider";
 import { useNavigate } from "react-router-dom";
 import CustomOutlineButton from "../components/Button/CustomOutlineBtn";
-const Welcome = () => {
+const LoginContent = () => {
   const navigate = useNavigate();
   return (
     <Box
@@ -17,16 +17,16 @@ const Welcome = () => {
       }}
     >
       <Typography variant="h1" mb={3}>
-        Welcome Back!
+        Join Us Today
       </Typography>
-      <Typography variant="body2">To stay connected with us</Typography>
       <Typography variant="body2">
-        please login with your personal info
+        Create your account and unlock a world of possibilities.{" "}
       </Typography>
-      {/* <SigninBtn /> */}
-      <CustomOutlineButton onClick={() => navigate("/signin")} color="#fff">
-        Sign in
+      <Typography variant="body2">Sign up now to get started!</Typography>
+      <CustomOutlineButton onClick={() => navigate("/signup")} color="#fff">
+        Sign up
       </CustomOutlineButton>
+
       <Box
         sx={{
           textAlign: "center",
@@ -68,7 +68,7 @@ const Welcome = () => {
       >
         <Typography variant="subtitle1">
           Don't have an account?
-          <Link color="inherit" m={1} onClick={() => navigate("/signup")}>
+          <Link color="inherit" m={1} onClick={() => navigate("/")}>
             SignUp
           </Link>
         </Typography>
@@ -77,4 +77,4 @@ const Welcome = () => {
   );
 };
 
-export default Welcome;
+export default LoginContent;
