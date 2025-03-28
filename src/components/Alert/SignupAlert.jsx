@@ -60,7 +60,7 @@ export default function SignupAlert({ open, handleClose }) {
         {/* Dialog Actions */}
         <DialogActions sx={{ justifyContent: "center", pb: 2 }}>
           <CustomOutlineButton onClick={handleClose} color="#0faf82">
-            Cancel
+            OK
           </CustomOutlineButton>
 
           <CustomContainedButton onClick={() => navigate("/signin")}>
