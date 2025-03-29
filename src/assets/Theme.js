@@ -164,7 +164,7 @@ const theme = createTheme({
     MuiDialog: {
       styleOverrides: {
         paper: {
-          width: "30%",
+          width: { lg: "30%", md: "50%", sm: "90%", xs: "90%" },
           position: "relative",
           paddingTop: "50px",
           borderRadius: "12px",
