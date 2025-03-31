@@ -6,9 +6,10 @@ import Container from "@mui/material/Container";
 import Welcome from "./pages/Welcome";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { ThemeProvider } from "@mui/material/styles";
-import theme from "./assets/Theme"; // Import the theme file
+import theme from "./assets/Theme"; 
 import Signin from "./pages/Signin";
 import LoginContent from "./pages/LoginContent";
+import Home from "./pages/Home";
 function App() {
   const router = createBrowserRouter([
     {
@@ -64,6 +65,7 @@ function App() {
             style={{
               height: "100vh",
               display: "flex",
+              flexDirection: "row",
               justifyContent: "center",
               alignItems: "center",
             }}
@@ -80,10 +82,9 @@ function App() {
               <Box sx={{ flexGrow: 1 }}>
                 <Grid container spacing={2}>
                   <Grid
-                    size={{ xs: 12, sm: 12, md: 5, lg: 5 }}
+                    size={{ xs: 12, sm: 5, md: 5, lg: 5 }}
                     sx={{
                       backgroundColor: "#0faf82",
-                      // borderRadius: {xs:"20px" , sm:"0px" ,md:"0px" , lg:"0px"},
                       borderTopLeftRadius: "20px",
                       borderBottomLeftRadius: "20px",
                       borderTopRightRadius: {
@@ -160,6 +161,10 @@ function App() {
         </>
       ),
     },
+    {
+      path:"/home",
+      element:(<><Home/></>)
+    }
   ]);
   return (
     <>

@@ -30,6 +30,7 @@ const theme = createTheme({
       fontFamily: "system-ui",
       fontWeight: "200 !important",
       color: "white",
+      textAlign: "center",
     },
     body1: {
       fontSize: "16px",
@@ -53,13 +54,13 @@ const theme = createTheme({
       styleOverrides: {
         root: {
           width: "100%",
-          backgroundColor: "#89ceb9",
+          // backgroundColor: "#89ceb9",
           borderRadius: "5px",
           "&:hover": {
-            backgroundColor: "#7abdaa",
+            // backgroundColor: "#7abdaa",
           },
           "&.Mui-focused": {
-            backgroundColor: "#68ab96",
+            // backgroundColor: "#68ab96",
           },
           "& input": {
             width: "100%",
@@ -74,26 +75,25 @@ const theme = createTheme({
       },
     },
     MuiTextField: {
-      // ✅ Ensures TextField uses the theme
+      // TextField uses the theme
       defaultProps: {
         variant: "filled",
       },
     },
     MuiFormControl: {
-      // ✅ Ensures consistent styling for inputs
       styleOverrides: {
         root: {
           borderRadius: "8px",
           "& .MuiFilledInput-root": {
             height: "40px",
-            backgroundColor: "#89ceb9",
+            backgroundColor: "#89ceb9", //inputs background color
             padding: "0px !important",
             BorderBottom: "0px !important",
             "&:hover": {
-              backgroundColor: "#7abdaa",
+              backgroundColor: "#7abdaa", // input hover
             },
             "&.Mui-focused": {
-              backgroundColor: "#68ab96",
+              backgroundColor: "#68ab96", // input focus background color
             },
             "&::before, &::after": {
               borderBottom: "none !important",
@@ -105,7 +105,7 @@ const theme = createTheme({
     MuiInputAdornment: {
       styleOverrides: {
         root: {
-          backgroundColor: "#58bd94",
+          backgroundColor: "#58bd94", // input icon background color
           height: "55px",
           width: "55px",
           display: "flex",
@@ -123,10 +123,8 @@ const theme = createTheme({
         root: {
           width: "200px",
           height: "40px",
-          // color: "white",
           marginTop: "30px",
           border: "2px solid #0faf82 !important",
-          // backgroundColor: "#0faf82",
           fontWeight: "lighter !important",
           textTransform: "capitalize",
           fontSize: "16px",
@@ -150,17 +148,6 @@ const theme = createTheme({
         },
       },
     },
-    // MuiDialog: {
-    //   styleOverrides: {
-
-    //     paper: {
-    //       borderTop: "4px solid #0faf82", // ✅ Border applied to Dialog
-    //       borderRadius: "8px", // Optional: Add border radius
-    //       boxShadow: "0px 4px 10px rgba(0,0,0,0.1)", // Optional: Add shadow
-    //     },
-    //   },
-    // },
-
     MuiDialog: {
       styleOverrides: {
         paper: {
@@ -170,8 +157,8 @@ const theme = createTheme({
           borderRadius: "12px",
           textAlign: "center",
           overflow: "visible",
-          borderTop: "4px solid #0faf82", // ✅ Green top border
-          boxShadow: "0px 4px 10px rgba(0,0,0,0.1)", // ✅ Subtle shadow
+          borderTop: "4px solid #0faf82", // Green top border
+          boxShadow: "0px 4px 10px rgba(0,0,0,0.1)", // Subtle shadow
         },
       },
     },

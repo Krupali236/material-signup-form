@@ -54,7 +54,10 @@ const Signup = () => {
           users.email === inputValue.email
       );
       if (userExist) {
-        alert("User already exists!");
+        setErrors((prev) => ({
+          ...prev,
+          user: "User already exists!",
+        }));
       } else {
         userData.push(inputValue);
         localStorage.setItem("users", JSON.stringify(userData));
@@ -146,7 +149,7 @@ const Signup = () => {
             errors={errors}
             fields={["username", "email", "password"]}
           />
-
+          {errors?.user && <Typography color="error">{errors.user}</Typography>}
           <CustomContainedButton onClick={handleSubmit}>
             Sign Up
           </CustomContainedButton>
