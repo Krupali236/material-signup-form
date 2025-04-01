@@ -86,7 +86,8 @@ const theme = createTheme({
           borderRadius: "8px",
           "& .MuiFilledInput-root": {
             height: "40px",
-            backgroundColor: "#89ceb9", //inputs background color
+            backgroundColor: "#fff", //inputs background color
+            border: "2px solid #89ceb9",
             padding: "0px !important",
             BorderBottom: "0px !important",
             "&:hover": {
